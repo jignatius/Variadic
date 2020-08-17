@@ -3,6 +3,7 @@
 
 #include "stringify.h"
 #include "print.h"
+#include "tree.h"
 #include <iostream>
 
 
@@ -10,6 +11,7 @@ int main()
 {
     print("hello", " ", "world", "\n");
     printf("hello", "world", "\n");
+    printF("hello", "world", "\n");
 
     std::cout << StringifyRecursive("hello", " ", "world", " ", 123, '\n');
     std::cout << StringifyInitList("hello", " ", "world", " ", 123, '\n');

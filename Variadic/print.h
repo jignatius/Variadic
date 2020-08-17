@@ -32,3 +32,38 @@ void printf(Args&&...args)
 
     (print_impl(args), ...);
 }
+
+template<typename T>
+class AddSpace
+{
+private:
+    T const& ref;
+
+public:
+    AddSpace(T const& r) : ref(r) {
+    }
+
+    friend std::ostream& operator<< (std::ostream& os, AddSpace<T> s)
+    {
+        return os << s.ref << ' ';
+    }
+};
+
+template<typename... Types>
+void printF(Types const&... args)
+{
+    (std::cout << ... << AddSpace(args) ) << '\n';
+}
+
+/*
+template<typename It>
+using EnableIf = typename std::enable_if<
+    std::is_same<It, typename std::list<typename std::iterator_traits<It>::value_type>::iterator>::value ||
+    std::is_same<It, typename std::list<typename std::iterator_traits<It>::value_type>::const_iterator>::value>::type;
+
+template<
+    typename It,
+    typename = EnableIf<It>>
+    auto operator<<(std::ostream& os, const It& x) {
+    return os << "&" << *x;
+}*/
