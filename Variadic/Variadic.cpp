@@ -9,6 +9,7 @@
 int main()
 {
     print("hello", " ", "world", "\n");
+    printf("hello", "world", "\n");
 
     std::cout << StringifyRecursive("hello", " ", "world", " ", 123, '\n');
     std::cout << StringifyInitList("hello", " ", "world", " ", 123, '\n');
