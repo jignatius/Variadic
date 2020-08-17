@@ -1,12 +1,15 @@
 // Variadic.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include "stringify.h"
+#include "print.h"
 #include <iostream>
-#include "Stringify.h"
 
 
 int main()
 {
+    print("hello", " ", "world", "\n");
+
     std::cout << StringifyRecursive("hello", " ", "world", " ", 123, '\n');
     std::cout << StringifyInitList("hello", " ", "world", " ", 123, '\n');
     std::cout << StringifyFold("hello", " ", "world", " ", 123, '\n');

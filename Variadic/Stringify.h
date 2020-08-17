@@ -27,12 +27,12 @@ template<typename... Ts>
 std::string StringifyInitList(Ts... args)
 {
     std::ostringstream os;
-    const int size = sizeof...(args);
     // since initializer lists guarantee sequencing, this can be used to
     // call a function on each element of a pack, in order:
     int dummy[sizeof...(Ts)] = { (os << args, 0)... };
     return os.str();
 }
+
 
 template<typename... Ts>
 std::string StringifyFold(Ts... args)
